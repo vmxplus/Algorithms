@@ -1,7 +1,6 @@
 package sed.algorithm.chapter1.section4;
 
-import java.io.File;
-import java.io.PrintStream;
+
 
 public class MatrixLocalMinimum {
 	public static int[] findLocalMinimumElement(int[][] matrix)throws Exception{

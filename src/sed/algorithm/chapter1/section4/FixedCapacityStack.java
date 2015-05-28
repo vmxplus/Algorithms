@@ -1,6 +1,7 @@
 package sed.algorithm.chapter1.section4;
 
 public class FixedCapacityStack<Item> {
+	@SuppressWarnings("unchecked")
 	private Item[] itemArray = (Item[]) new Object[100000];
 	private int size;
 	
