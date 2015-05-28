@@ -7,6 +7,8 @@ public class CostOfAutoBoxing {
 	
 	public static  double timeTrialGenereic() throws Exception{
 		FixedCapacityStack<Integer> stackGeneric = new FixedCapacityStack<>();
+		
+		
 		Timer timer = new Timer();
 		while (!stackGeneric.isFull()) {			
 			stackGeneric.push(StdRandom.uniform(99999));
