@@ -4,9 +4,9 @@ import edu.princeton.cs.introcs.StdIn;
 import edu.princeton.cs.introcs.StdOut;
 
 public class WeightedQuickUnionUF {
-	private int[] id; //¸¸Á´½ÓÊý×é£¨ÓÉ´¥µãË÷Òý£©
-	private int[] sz;	//(ÓÉ´¥µãË÷ÒýµÄ)¸÷¸ö¸ù½ÚµãËù¶ÔÓ¦µÄ·ÖÁ¿µÄ´óÐ¡
-	private int count;	//Á¬Í¨·ÖÁ¿µÄÊýÁ¿
+	private int[] id; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½é£¨ï¿½É´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private int[] sz;	//(ï¿½É´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½ï¿½Ó¦ï¿½Ä·ï¿½ï¿½ï¿½ï¿½Ä´ï¿½Ð¡
+	private int count;	//ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	
 	public WeightedQuickUnionUF(int N){
 		count = N;
@@ -17,7 +17,7 @@ public class WeightedQuickUnionUF {
 
 		sz = new int[N];
 		for (int i = 0; i < N; i++) {
-			sz[i] = 1;
+			sz[i] = 1;  
 		}
 	
 	}
@@ -57,20 +57,20 @@ public class WeightedQuickUnionUF {
 	}
 	
 	public static void main(String[] args){
-		int N = StdIn.readInt();		//¶ÁÈ¡´¥µãÊýÁ¿
-		UF uf = new UF(N);				//³õÊ¼»¯N¸ö·ÖÁ¿
+		int N = StdIn.readInt();		//ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		UF uf = new UF(N);				//ï¿½ï¿½Ê¼ï¿½ï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		
 		while (!StdIn.isEmpty()) {
 			int p = StdIn.readInt();
-			int q = StdIn.readInt();	//¶ÁÈ¡ÕûÊý¶Ô
+			int q = StdIn.readInt();	//ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½
 			
-			if (uf.connected(p, q)) {	//ÁªÍ¨ºöÂÔ
+			if (uf.connected(p, q)) {	//ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½
 				continue;
 			}
 			
-			uf.union(p, q);				//¹é²¢·ÖÁ¿
+			uf.union(p, q);				//ï¿½é²¢ï¿½ï¿½ï¿½ï¿½
 			
-			StdOut.println(p + " " + q); //´òÓ¡Á¬½Ó
+			StdOut.println(p + " " + q); //ï¿½ï¿½Ó¡ï¿½ï¿½ï¿½ï¿½
 		}
 		
 		StdOut.println(uf.count() + "components");
