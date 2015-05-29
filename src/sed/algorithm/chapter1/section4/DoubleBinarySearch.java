@@ -15,6 +15,7 @@ public class DoubleBinarySearch {
 					return index;
 				}
 				lo=mid+1;
+				
 			}else {
 				index=rank_down(a, key, mid-1, hi);
 				if (index >= 0) {
