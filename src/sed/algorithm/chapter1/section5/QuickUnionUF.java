@@ -4,6 +4,9 @@ public class QuickUnionUF {
 	private int[] ufArray;
 	private int count;
 	
+	public int count(){
+		return count;
+	}
 	public QuickUnionUF(int max){
 		this.ufArray = new int[max];
 		

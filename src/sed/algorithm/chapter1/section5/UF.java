@@ -4,7 +4,7 @@ import edu.princeton.cs.introcs.StdIn;
 import edu.princeton.cs.introcs.StdOut;
 
 public class UF {
-	private int[] id;	//·ÖÁ¿id£¨ÒÔ´¥µã×÷ÎªË÷Òý£©
+	private int[] id;	//ï¿½ï¿½ï¿½ï¿½idï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½
 	private int count;
 	
 	public UF(int N){
@@ -24,34 +24,10 @@ public class UF {
 		return find(p) == find(q);
 	}
 	
-	//quick find ·½·¨ÊµÏÖµÄ ²¢²é	
-	/*public int find(int p){
-		return id[p];
-	}
 	
-	public void union(int p, int q){
-		//½«pºÍq¹é²¢µ½ÏàÍ¬µÄ·ÖÁ¿ÖÐ
-		int pID = find(p);
-		int qID = find(q);
-		
-		if (pID == qID) {
-			return ;
-		}
-		
-		for (int i = 0; i < id.length; i++) {
-			if (id[i] == pID) {
-				id[i] = qID;
-			}
-		}
-		
-		count--;
-		
-		
-	}*/
-	
-	//quick union Ëã·¨
+	//quick union ï¿½ã·¨
 	private int find(int p){
-		//ÕÒ³ö·ÖÁ¿µÄÃû³Æ
+		//ï¿½Ò³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		while (p != id[p]) {
 			p = id[p];
 		}
@@ -72,20 +48,20 @@ public class UF {
 	
 	
 	public static void main(String[] args){
-		int N = StdIn.readInt();		//¶ÁÈ¡´¥µãÊýÁ¿
-		UF uf = new UF(N);				//³õÊ¼»¯N¸ö·ÖÁ¿
+		int N = StdIn.readInt();		//ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		UF uf = new UF(N);				//ï¿½ï¿½Ê¼ï¿½ï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		
 		while (!StdIn.isEmpty()) {
 			int p = StdIn.readInt();
-			int q = StdIn.readInt();	//¶ÁÈ¡ÕûÊý¶Ô
+			int q = StdIn.readInt();	//ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½
 			
-			if (uf.connected(p, q)) {	//ÁªÍ¨ºöÂÔ
+			if (uf.connected(p, q)) {	//ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½
 				continue;
 			}
 			
-			uf.union(p, q);				//¹é²¢·ÖÁ¿
+			uf.union(p, q);				//ï¿½é²¢ï¿½ï¿½ï¿½ï¿½
 			
-			StdOut.println(p + " " + q); //´òÓ¡Á¬½Ó
+			StdOut.println(p + " " + q); //ï¿½ï¿½Ó¡ï¿½ï¿½ï¿½ï¿½
 		}
 		
 		StdOut.println(uf.count() + "components");

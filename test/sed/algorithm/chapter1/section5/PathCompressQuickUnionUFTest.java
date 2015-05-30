@@ -1,19 +1,19 @@
 package sed.algorithm.chapter1.section5;
 
-
+import static org.junit.Assert.*;
 
 import org.junit.Test;
 
 import edu.princeton.cs.introcs.In;
 import edu.princeton.cs.introcs.StdOut;
 
-public class QuickUnionUFTest {
+public class PathCompressQuickUnionUFTest {
 
 	@Test
 	public void test() {
-		In in = new In("resources/mediumUF.txt");
+		In in = new In("resources/largeUF.txt");
 		int N = in.readInt();
-		QuickUnionUF uf = new QuickUnionUF(N);
+		PathCompressQuickUnionUF uf = new PathCompressQuickUnionUF(N);
 		while (!in.isEmpty()) {
 			int p = in.readInt();
 			int q = in.readInt();
@@ -21,7 +21,7 @@ public class QuickUnionUFTest {
 				continue;
 			}
 			uf.union(p, q);
-			StdOut.println(p+" : " +q);
+		StdOut.println(p+" : " +q);
 			
 		}
 		

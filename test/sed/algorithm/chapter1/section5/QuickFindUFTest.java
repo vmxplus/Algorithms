@@ -12,11 +12,11 @@ public class QuickFindUFTest {
 	public void test() {
 		In in = new In("resources/largeUF.txt");
 		int N = in.readInt();
-		UF uf = new UF(N);
+		QuickFindUF uf = new QuickFindUF(N);
 		while (!in.isEmpty()) {
 			int p = in.readInt();
 			int q = in.readInt();
-			if (uf.connected(p, q)) {
+			if (uf.connect(p, q)) {
 				continue;
 			}
 			uf.union(p, q);
