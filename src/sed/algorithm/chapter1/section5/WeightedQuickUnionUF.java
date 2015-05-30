@@ -4,76 +4,49 @@ import edu.princeton.cs.introcs.StdIn;
 import edu.princeton.cs.introcs.StdOut;
 
 public class WeightedQuickUnionUF {
-	private int[] id; //���������飨�ɴ�������
-	private int[] sz;	//(�ɴ��������)������ڵ����Ӧ�ķ����Ĵ�С
-	private int count;	//��ͨ����������
+	private int[] id;
+	private int[] sz;
+	private int count;
 	
-	public WeightedQuickUnionUF(int N){
-		count = N;
-		id = new int[N];
-		for (int i = 0; i < N; i++) {
+	public WeightedQuickUnionUF(int max) {
+		this.id = new int[max];
+		this.sz = new int[max];
+		
+		for (int i = 0; i < id.length; i++) {
 			id[i] = i;
 		}
-
-		sz = new int[N];
-		for (int i = 0; i < N; i++) {
-			sz[i] = 1;  
+		
+		for (int i = 0; i < sz.length; i++) {
+			sz[i] = 1;
 		}
-	
-	}
-	
-	public int count(){
-		return count;
-	}
-	
-	
-	public boolean connected(int p, int q){
-		return find(p) == find(q);
+		
 	}
 	
 	public int find(int p){
-		while(p!=id[p]){
+		while(id[p] != p){
 			p = id[p];
 		}
 		
 		return p;
 	}
 	
-	public void union(int p, int q){
-		int i = find(p);
-		int j = find(q);
-		if (i == j) {
-			return ;
-		}
-		if (sz[i] < sz[j]) {
-			id[i]= j;
-			sz[j]+=sz[i];
-		}else {
-			id[j] = i; 
-			sz[i]+=sz[j];
-		}
-		
-		count-- ;
+	public boolean connected(int p , int q){
+		return find(p) == find(q);
 	}
 	
-	public static void main(String[] args){
-		int N = StdIn.readInt();		//��ȡ��������
-		UF uf = new UF(N);				//��ʼ��N������
-		
-		while (!StdIn.isEmpty()) {
-			int p = StdIn.readInt();
-			int q = StdIn.readInt();	//��ȡ�����
-			
-			if (uf.connected(p, q)) {	//��ͨ����
-				continue;
+	public void union(int p , int q){
+		int pRoot = find(p);
+		int qRoot = find(q);
+		if (pRoot!=qRoot) {
+			if (sz[pRoot] < sz[qRoot]) {
+				id[pRoot] = qRoot;
+				sz[qRoot]=sz[qRoot]+sz[pRoot];
+			}else {
+				id[qRoot] = pRoot;
+				sz[pRoot] = sz[pRoot]+sz[qRoot];
 			}
-			
-			uf.union(p, q);				//�鲢����
-			
-			StdOut.println(p + " " + q); //��ӡ����
+			count --;
 		}
-		
-		StdOut.println(uf.count() + "components");
 	}
 	
 }
