@@ -5,7 +5,8 @@ import edu.princeton.cs.introcs.StdRandom;
 
 public class ErdosRenyi {
 	public static void main(String[] args) {
-		int N =1000000;
+		
+		int N =10000;
 		PathCompressWeightedQuickUnionUF uf = new PathCompressWeightedQuickUnionUF(N);
 		int linkCount=0;
 		while (uf.count() != 1) {
@@ -20,5 +21,6 @@ public class ErdosRenyi {
 		
 		
 		StdOut.println("Link Count : " + linkCount);
+		
 	}
 }
