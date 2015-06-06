@@ -37,6 +37,10 @@ public class SortCompare {
 			Heap.sort(a);
 		}
 		
+		if ("FixSequenceShell".equals(alg)){
+			FixSequenceShell.sort(a);
+		}
+		
 		
 		return timer.elapsedTime();
 	}
@@ -44,6 +48,7 @@ public class SortCompare {
 	public static double timeRandomInput(String alg, int N , int T){
 		double total = 0.0;
 		Double[] a = new Double[N];
+	
 		
 		for (int t = 0; t < T; t++) {
 			for (int i = 0; i < N; i++) {
@@ -66,6 +71,7 @@ public class SortCompare {
 		StdOut.printf("For %d random Doubles\n 	%s is", N, alg1);
 		
 		StdOut.printf(" %.2f times faster than %s\n", t2/t1, alg2);
+			
 	}
 	
 	

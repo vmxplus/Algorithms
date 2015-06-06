@@ -285,15 +285,21 @@ public class Apriori {
 		for (int index = 1; index <= 5; index++)
 			items.add("I" + index);
 
-		bitVectorList.add(getStrList("1,1,0,0,1"));
-		bitVectorList.add(getStrList("0,1,0,1,0"));
-		bitVectorList.add(getStrList("0,1,1,0,0"));
-		bitVectorList.add(getStrList("1,1,0,1,0"));
-		bitVectorList.add(getStrList("1,0,1,0,0"));
-		bitVectorList.add(getStrList("0,1,1,0,0"));
-		bitVectorList.add(getStrList("1,0,1,0,0"));
+//		bitVectorList.add(getStrList("1,1,0,0,1"));
+//		bitVectorList.add(getStrList("0,1,0,1,0"));
+//		bitVectorList.add(getStrList("0,1,1,0,0"));
+//		bitVectorList.add(getStrList("1,1,0,1,0"));
+//		bitVectorList.add(getStrList("1,0,1,0,0"));
+//		bitVectorList.add(getStrList("0,1,1,0,0"));
+//		bitVectorList.add(getStrList("1,0,1,0,0"));
+//		bitVectorList.add(getStrList("1,1,1,0,1"));
+//		bitVectorList.add(getStrList("1,1,1,0,0"));
+		
+		bitVectorList.add(getStrList("1,0,1,1,0"));
+		bitVectorList.add(getStrList("0,1,1,0,1"));
 		bitVectorList.add(getStrList("1,1,1,0,1"));
-		bitVectorList.add(getStrList("1,1,1,0,0"));
+		bitVectorList.add(getStrList("0,1,0,0,1"));
+		
 
 	}
 
