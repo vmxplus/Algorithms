@@ -1,0 +1,65 @@
+package sed.algorithm.chapter2.section2;
+
+import edu.princeton.cs.introcs.StdOut;
+
+public class MergeBU {
+	private static Comparable[] aux;
+	
+	public static void sort (Comparable[] a){
+		//进行logN次的两两归并
+		int N = a.length;
+		aux = new Comparable[N];
+		for (int sz = 1; sz < N; sz = sz+sz) {
+			for (int lo = 0; lo < N-sz; lo +=sz+sz) {
+				merge(a, lo, lo+sz-1, Math.min(lo+sz*2-1, N-1));
+			}
+		}
+		
+	}
+	
+	public static void merge(Comparable a[], int lo, int mid, int high){
+		int i = lo, j = mid+1;
+		
+		for (int k = lo; k <=high; k++) {
+			aux[k]= a[k];
+		}
+		
+		for (int k = lo; k <= high; k++) {
+			if		(i > mid) 				a[k] = aux[j++];
+			else if	(j > high) 				a[k] = aux[i++];
+			else if	(less(aux[j], aux[i]))  a[k] = aux[j++];
+			else 							a[k] = aux[i++];
+		}
+	}
+	
+	private static boolean less(Comparable v, Comparable w){
+		return v.compareTo(w) < 0;
+	}
+	
+	private static void exch(Comparable[] a, int i, int j){
+		Comparable t = a[i]; a[i] = a[j]; a[j] = t;
+	}
+	private static void show(Comparable[] a){
+		for (int i = 0; i < a.length; i++) {
+			StdOut.print(a[i] + " " );
+		}
+		
+		StdOut.println();
+	}
+	
+	public static boolean isSorted(Comparable[] a){
+		for (int i = 0; i < a.length; i++) {
+			if (less(a[i], a[i-1])) {
+				return false;
+			}
+		}
+		
+		return true;
+	}
+	
+	public static void main(String[] args) {
+		Integer[] a = {6,5,3,3,4,1};
+		sort(a);
+		show(a);
+	}
+}

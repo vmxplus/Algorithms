@@ -83,10 +83,25 @@ public class PartSortedTest {
 			}
 			
 			a[index] = temp;
+			
 		}
 		
 		return a;
 	}
+	
+	public static Integer[] generateInTenArray(int N){
+		Integer[] array = new Integer[N]; 
+		for (int i = 0; i < N; i++) {
+			array[i] = i;
+		}
+		
+		for (int i = 0; i < N-10; i=i+10) {
+			StdRandom.shuffle(array, i, i+10);
+		}
+		
+		return array;
+	}
+	
 	public static void main(String[] args) {
 		String alg = args[0];
 		int N = Integer.parseInt(args[1]);
@@ -100,5 +115,7 @@ public class PartSortedTest {
 		Integer[] aFR = generateFRSortedArray(N);
 		StdOut.println("The aFR time is: "+ time(alg, aFR));
 		
+		Integer[] aInTen = generateInTenArray(N);
+		StdOut.println("The aInTen time is: "+ time(alg, aInTen));
 	}
 }
