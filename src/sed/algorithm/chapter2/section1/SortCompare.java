@@ -65,7 +65,8 @@ public class SortCompare {
 		String alg2 = args[1];
 		int N = Integer.parseInt(args[2]);
 		int T = Integer.parseInt(args[3]);
-		
+		List<Integer> list = new ArrayList<>();
+		list.
 		double t1 = timeRandomInput(alg1, N, T);
 		double t2 = timeRandomInput(alg2, N, T);
 		StdOut.printf("For %d random Doubles\n 	%s is", N, alg1);
